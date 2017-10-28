@@ -3,8 +3,9 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
-	"github.com/hitchnsmile/gohunting"
 	"os"
+
+	"github.com/hitchnsmile/gohunting"
 )
 
 func main() {
@@ -31,7 +32,7 @@ func main() {
 	// add column
 	l := len(lines)
 	for i := 1; i < l; i++ {
-		searchResponse, err := client.Search(lines[i][5])
+		searchResponse, err := client.Search(lines[i][4])
 		if err != nil {
 			fmt.Println(err)
 		}
@@ -41,7 +42,7 @@ func main() {
 	}
 
 	// write the file
-	f, err = os.Create("new" + filePath)
+	f, err = os.Create(filePath + ".new")
 	if err != nil {
 		fmt.Println(err)
 	}
